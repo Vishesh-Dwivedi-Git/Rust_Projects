@@ -7,7 +7,7 @@ enum Shapes {
 }
 
 
-imp Shapes {
+impl Shapes {
     fn area(&self) -> f64 {
         match self {
             Shapes::Square(side) => side * side,
@@ -17,14 +17,28 @@ imp Shapes {
     }
 }
 
+struct Rectangle {
+    length:f64,
+    width:f64
+}
+
+
+
 fn main() {
     println!("Hello, world!");
     let s1 =Shapes::Square(4.0);
     let s2 =Shapes::Rectangle(4.0, 5.0);
     let s3 =Shapes::Circle(3.0);
 
-    println!("Area of Square: {}", area(s1));
-    println!("Area of Rectangle: {}", area(s2));
+    let rectangle=Rectangle {
+        length:4.0,
+        width :5.0
+    };
+    println!( "{}",rectangle.length);
+    println!("{}", rectangle.width);
+
+    println!("Area of Square: {}", s1.area());
+    println!("Area of Rectangle: {}", s2.area());
     println!("Area of Circle: {}", area(s3));
 }
 
